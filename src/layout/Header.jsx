@@ -14,6 +14,7 @@ const Header = () => {
   const buttonRef = useRef();
   const dispatch = useDispatch();
   const isDarkMode = useSelector(selectDarkMode);
+  const textColour = isDarkMode ? "text-white" : "";
 
   const handleClickOutside = (event) => {
     if (
@@ -37,7 +38,9 @@ const Header = () => {
   return (
     <nav className="flex items-center justify-between gap-4 p-5 mb-2">
       <div>
-        <img src={logo} alt="logo" className="w-7 h-8" />
+        <a href="/">
+          <img src={logo} alt="logo" className="w-7 h-8" />
+        </a>
       </div>
       <div className="flex items-center gap-2">
         <div className="relative inline-block text-left">
@@ -61,7 +64,9 @@ const Header = () => {
 
           {isDropdownOpen && (
             <div
-              className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white z-10"
+              className={`origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg ${
+                isDarkMode ? "bg-[#1f1f1f] custom-shadow" : "bg-white"
+              } z-10`}
               ref={dropdownRef}
             >
               <div
@@ -71,8 +76,8 @@ const Header = () => {
                 aria-labelledby="options-menu"
               >
                 <p
-                  className={`block px-4 py-2 text-lg leading-5 text-[#2D2D2D] font-bold  hover:text-[#A445ED] cursor-pointer font-Inter 
-                  }`}
+                  className={`block px-4 py-2 text-lg leading-5 text-[#2D2D2D] font-bold  hover:text-[#A445ED] cursor-pointer font-Inter ${textColour}
+                  `}
                   role="menuitem"
                   onClick={(event) => {
                     dispatch(setFont("Inter"));
@@ -82,7 +87,7 @@ const Header = () => {
                   Serif
                 </p>
                 <p
-                  className={`block px-4 py-2 text-lg leading-5 text-[#2D2D2D] font-bold  hover:text-[#A445ED] cursor-pointer font-Lora `}
+                  className={`block px-4 py-2 text-lg leading-5 text-[#2D2D2D] font-bold  hover:text-[#A445ED] cursor-pointer font-Lora ${textColour}`}
                   role="menuitem"
                   onClick={(event) => {
                     dispatch(setFont("Lora"));
@@ -92,7 +97,7 @@ const Header = () => {
                   Sans
                 </p>
                 <p
-                  className={`block px-4 py-2 text-lg leading-5 text-[#2D2D2D] font-bold  hover:text-[#A445ED] cursor-pointer font-Inconsolata`}
+                  className={`block px-4 py-2 text-lg leading-5 text-[#2D2D2D] font-bold  hover:text-[#A445ED] cursor-pointer font-Inconsolata ${textColour}`}
                   role="menuitem"
                   onClick={(event) => {
                     dispatch(setFont("Inconsolata"));

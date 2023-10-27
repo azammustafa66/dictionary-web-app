@@ -10,10 +10,10 @@ function MainContent() {
   const isDarkMode = useSelector(selectDarkMode);
   const font = useSelector(selectFont);
 
-  const bgColorClass = isDarkMode ? "bg-[#050505]" : "bg-white";
+  const bgColorClass = isDarkMode ? "bg-[#050505]" : "";
 
   return (
-    <div className={`h-full mx-auto ${bgColorClass} font-${font}`}>
+    <div className={`mx-auto min-h-screen ${bgColorClass} font-${font}`}>
       <Header />
       <Body />
     </div>

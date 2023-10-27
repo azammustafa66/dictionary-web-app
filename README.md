@@ -36,3 +36,4 @@ Users should be able to:
 - Mobile-first workflow
 - [React](https://reactjs.org/) - JS library
 - [Tailwind CSS](https://tailwindcss.com/) - For styles
+- [Redux](https://redux.js.org/) - For state management
